@@ -1,0 +1,7 @@
+node_modules
+bower_components
+
+.idea
+
+dist/bundle.js
+dist/bundle.js/bundle.js.map

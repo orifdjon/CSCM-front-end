@@ -1,12 +1,17 @@
 import * as React from 'react'
+import Header from "./header";
+import Body from "./body";
+import Footer from "./footer";
 
-interface IProps {
-    name: string
-}
-
-class App extends React.Component<IProps, {}> {
+class App extends React.Component<{}, {}> {
     render() {
-        return (<h1>Hello</h1>);
+        return (
+            <div>
+                <Header/>
+                <Body/>
+                <Footer/>
+            </div>
+        );
     }
 }
 

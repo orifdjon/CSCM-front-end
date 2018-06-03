@@ -1,34 +1,28 @@
 const path = require("path");
-
-
 const htmlWebpackPlugin = require('html-webpack-plugin');
-const paths = {
-    src: path.resolve(__dirname, "src"),
-    dist: path.resolve(__dirname, "build")
-};
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 
 const conf = {
-    context: paths.src,
-
     entry: {
         app: "./src/ts/index.tsx"
     },
     output: {
-        path: paths.dist,
-        filename: "[name].bundle.js"
+        path: path.resolve(__dirname, "build"),
+        filename: "bundle.js"
     },
 
-    /*devServer: {
+    devServer: {
         overlay: true
-    },*/
+    },
 
 
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
-        extensions: [".ts", ".tsx", ".js", ".json"]
+        extensions: [".ts", ".tsx", ".js", ".json", ".less", "css"]
     },
 
-    // watch: true,
+    watch: true,
 
     module: {
         rules: [
@@ -40,6 +34,23 @@ const conf = {
                 enforce: "pre",
                 test: /\.js$/,
                 loader: 'source-map-loader'
+            },
+            {
+                test: /\.less$/,
+                use: [MiniCssExtractPlugin.loader, "css-loader", "less-loader"]
+
+                /*use: [
+                    {
+                        loader: "style-loader"
+                    },
+                    {
+                        loader: "css-loader"
+                    },
+                    /!*{
+                        loader: "less-loader",
+                        options: { sourceMap: true }
+                    }*!/
+                ]*/
             }
         ],
 
@@ -55,7 +66,12 @@ const conf = {
             {
                 template: "./index.html"
             }
-        )
+        ),
+        new MiniCssExtractPlugin({
+            filename: "bundle.css"
+        })
+
+
     ]
 };
 

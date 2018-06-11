@@ -1,9 +1,16 @@
 import * as React from "react";
+import {Container} from "reactstrap";
+import FooterForm from "./smart/FooterForm";
+
+
 
 class Footer extends React.Component<{}, {}> {
+
     render() {
         return(
-            <h1>FOOTER</h1>
+            <div>
+                <FooterForm/>
+            </div>
         );
     }
 }

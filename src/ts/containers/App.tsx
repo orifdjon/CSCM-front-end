@@ -1,15 +1,20 @@
 import * as React from 'react'
 import Header from "./header";
-import Body from "./body";
+import Main from "./main";
 import Footer from "./footer";
+import {Container, Row} from "reactstrap";
 
 class App extends React.Component<{}, {}> {
     render() {
         return (
-            <div>
+            <div className={"app bg-light"}>
                 <Header/>
-                <Body/>
-                <Footer/>
+                <Container fluid={true}>
+                    <Row>
+                        <Main/>
+                        <Footer/>
+                    </Row>
+                </Container>
             </div>
         );
     }

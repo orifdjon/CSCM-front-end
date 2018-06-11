@@ -1,6 +1,7 @@
 const path = require("path");
 const htmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const webpack = require('webpack');
 
 
 const conf = {
@@ -13,8 +14,13 @@ const conf = {
     },
 
     devServer: {
-        overlay: true
+        overlay: true,
+        hot: true,
+        inline: true,
+        port: 9001,
+        open: true
     },
+
 
 
     resolve: {
@@ -36,22 +42,15 @@ const conf = {
                 loader: 'source-map-loader'
             },
             {
-                test: /\.less$/,
-                use: [MiniCssExtractPlugin.loader, "css-loader", "less-loader"]
+                test: /\.css$/,
+                use: ["style-loader", "css-loader"]
+            },
+            {
+                test: /\.scss$/,
+                use: [MiniCssExtractPlugin.loader, "css-loader", "resolve-url-loader", "sass-loader"]
 
-                /*use: [
-                    {
-                        loader: "style-loader"
-                    },
-                    {
-                        loader: "css-loader"
-                    },
-                    /!*{
-                        loader: "less-loader",
-                        options: { sourceMap: true }
-                    }*!/
-                ]*/
             }
+
         ],
 
     },
@@ -69,6 +68,9 @@ const conf = {
         ),
         new MiniCssExtractPlugin({
             filename: "bundle.css"
+        }),
+        new webpack.HotModuleReplacementPlugin({
+
         })
 
 

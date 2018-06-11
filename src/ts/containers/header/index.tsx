@@ -1,12 +1,13 @@
 import * as React from "react";
-import HeaderBtns from "./Btns"
+import HeaderBtns from "./silly/Btns"
+import {Container} from "reactstrap";
 
 class Header extends React.Component<{}, {}> {
-    render() {
+    render() { //TODO implement CurrentTime
         return (
-            <div className={"header"}>
+            <Container className={"header bg-primary"} fluid={true}>
                 <HeaderBtns/>
-            </div>
+            </Container>
         );
     }
 }

@@ -1,13 +1,13 @@
 import * as React from 'react';
 import {Col, Nav, NavItem, NavLink, Row, TabContent, TabPane} from "reactstrap";
 import ClassNames from 'classnames';
-import FooterTable from "./FooterTable";
+import FooterTable from "../silly/FooterTable";
 
 class FooterForm extends React.Component {
     render() {
         return (
             <Row className={"mt-5"}>
-                <Col md={"6"} className={""}>
+                <Col md={"12"} className={""}>
                     <Nav tabs className={""}>
                         <NavItem>
                             <NavLink

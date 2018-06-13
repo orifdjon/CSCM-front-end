@@ -35,7 +35,7 @@ class FooterForm extends React.Component {
                         </TabPane>
                         <TabPane tabId={2}>
                             <Row>
-                                <Col md={6}>
+                                <Col md={"12"}>
                                     <h6>Tab 2</h6>
                                 </Col>
                             </Row>

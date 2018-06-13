@@ -1,17 +1,19 @@
 import * as React from 'react';
 import {Button, Col, FormGroup, InputGroup, Label} from "reactstrap";
-import OptAlg from "../../main/silly/OptAlg";
-import CarrierInput from "../../main/silly/Carrier";
-import OptTypeInput from "../../main/silly/OptType";
+import OptAlg from "../silly/OptAlg";
+import CarrierInput from "../silly/Carrier";
+import OptTypeInput from "../silly/OptType";
 import * as DateTime from "react-datetime";
 import "react-datetime/css/react-datetime.css"
 
 const HeaderMain = () => (
     <FormGroup row className={"ml-1 mt-2 no-gutters"}>
         <Col md={{size: 0}}>
-            <Label for={"carrier-input"} className={"mt-2 mr-1"}>Carrier</Label>
+            <InputGroup>
+                <Label for={"carrier-input"} className={"mt-2 mr-1"}>Carrier</Label>
+                <CarrierInput/>
+            </InputGroup>
         </Col>
-        <CarrierInput/>
         <Col className={"ml-3"} md={"1"}>
             <DateTime
                 dateFormat={"DD-MM-YYYY"}
@@ -21,7 +23,7 @@ const HeaderMain = () => (
             />
         </Col>
         <Col className={"ml-3"} md={{
-            size:3,
+            size: 3,
         }}>
             <InputGroup>
                 <Label for={"opt-type-input"} className={"mt-2 mr-1"}>Optimization Type</Label>

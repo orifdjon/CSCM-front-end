@@ -1,8 +1,9 @@
 import * as React from 'react'
 import Header from "./header";
-import { Col,  Row} from "reactstrap";
+import {Col, Container, Row} from "reactstrap";
 import Main from "./main";
-import Map from "./Map";
+import Map from "./main/Map";
+import Footer from "./footer";
 
 class App extends React.Component<{}, {}> {
     render() {
@@ -11,9 +12,12 @@ class App extends React.Component<{}, {}> {
                 <Header/>
                 <Row>
                     <Col md={"6"}>
-                        <Main/>
+                        <Container fluid={true} className={"context-container mt-3"}>
+                            <Main/>
+                            <Footer/>
+                        </Container>
                     </Col>
-                    <Col md={"6"} className={"mt-3"}>
+                    <Col md={"5"} className={"mt-3 map"}>
                         <Map
                             googleMapURL={"https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUI" +
                             "GKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places"}
@@ -21,7 +25,7 @@ class App extends React.Component<{}, {}> {
                             containerElement={
                                 <div style={{
                                     height: `500px`,
-                                    width: `650px`
+                                    width: `500px`
                                 }}/>
                             }
                             mapElement={<div style={{height: `100%`}}/>}

@@ -1,0 +1,8 @@
+import * as React from 'react';
+import {Button} from "reactstrap";
+
+const Export = () => (
+    <Button outline color="secondary" disabled={true}>Export</Button>
+);
+
+export default Export;

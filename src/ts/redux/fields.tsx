@@ -12,7 +12,7 @@ export interface FieldState {
 const initialState: FieldState = {
     value: '',
     focus: false
-}
+};
 
 /**
  * Constants
@@ -67,17 +67,17 @@ export default function reducer(state: FieldState = initialState, action: FieldA
             return {
                 ...state,
                 value: action.payload
-            }
+            };
         case FOCUS:
             return {
                 ...state,
                 focus: true
-            }
+            };
         case BLUR:
             return {
                 ...state,
                 focus: false
-            }
+            };
         default:
             return state;
     }

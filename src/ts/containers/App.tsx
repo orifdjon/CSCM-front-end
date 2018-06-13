@@ -8,8 +8,10 @@ import Footer from "./footer";
 class App extends React.Component<{}, {}> {
     render() {
         return (
-            <div className={"app bg-light"}>
-                <Header/>
+            <div className={"app bg-light"} >
+                <Container className={"header "} fluid={true}>
+                    <Header/>
+                </Container>
                 <Row>
                     <Col md={"6"}>
                         <Container fluid={true} className={"context-container mt-3"}>

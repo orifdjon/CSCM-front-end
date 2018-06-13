@@ -14,6 +14,7 @@ const ContainMainTable = () => (
             <th>COST</th>
         </tr>
         </thead>
+
         <tbody>
         <tr>
             <th scope={"row"}>No Data Found</th>

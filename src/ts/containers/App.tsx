@@ -13,13 +13,13 @@ class App extends React.Component<{}, {}> {
                     <Header/>
                 </Container>
                 <Row>
-                    <Col md={"6"}>
+                    <Col>
                         <Container fluid={true} className={"context-container mt-3"}>
                             <Main/>
                             <Footer/>
                         </Container>
                     </Col>
-                    <Col md={"5"} className={"mt-3 map"}>
+                    <Col  className={"mt-3 map"}>
                         <Map
                             googleMapURL={"https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUI" +
                             "GKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places"}

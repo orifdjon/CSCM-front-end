@@ -4,6 +4,13 @@ import {Col, Container, Row} from "reactstrap";
 import Main from "./main";
 import Map from "./main/Map";
 import Footer from "./footer";
+import {createStore} from "redux";
+import configuration from "../store";
+
+
+// const Provider = require("react-redux").Provider;
+
+const store = configuration(null);
 
 class App extends React.Component<{}, {}> {
     render() {
@@ -38,5 +45,7 @@ class App extends React.Component<{}, {}> {
         );
     }
 }
+
+
 
 export default App;

@@ -1,22 +1,36 @@
 import * as React from 'react';
-import {Button, Col, FormGroup, InputGroup, Label} from "reactstrap";
-import OptAlg from "../silly/OptAlg";
-import CarrierInput, {CarrierProps} from "../silly/Carrier";
-import OptTypeInput from "../silly/OptType";
-import * as DateTime from "react-datetime";
-import "react-datetime/css/react-datetime.css"
-import {IStore} from "../../../store";
 import {bindActionCreators, Dispatch} from "redux";
 import {connect} from "react-redux";
-import {selectCarrier, selectCarrierType} from "../../../reduxElem/Carrier";
+
+import * as DateTime from "react-datetime";
+import "react-datetime/css/react-datetime.css"
+
 import {Moment} from "moment";
-import {dateFormat, setDate, setDateType} from "../../../reduxElem/DateTime";
+
+import {Button, Col, FormGroup, InputGroup, Label} from "reactstrap";
+
+import OptAlg, {OptAlgProps} from "../silly/OptAlg";
+import CarrierInput, {CarrierProps} from "../silly/Carrier";
+import OptTypeInput, {OptTypeProps} from "../silly/OptType";
+
+import {IStore} from "../../../store";
+
+import {dateFormat, setDate, setDateType} from "../../../reduxElem/header/DateTime";
+import {selectCarrier, selectCarrierType} from "../../../reduxElem/header/Carrier";
+import {selectOptType, selectOptTypeType} from "../../../reduxElem/header/OptType";
+import {selectOptAlg, selectOptAlgType} from "../../../reduxElem/header/OptAlg";
 
 
 interface HeaderMainProps {
     carrierProps?: CarrierProps;
-    carrierSelectAction?: selectCarrierType;
-    dateTimeAction?: setDateType;
+    optTypeProps?: OptTypeProps;
+    optAlgProps?: OptAlgProps;
+
+    carrierSelectAction?: selectCarrierType; // It's for change carriers in store
+    dateTimeAction?: setDateType; // It's for change date in store
+    optTypeSelectAction?: selectOptTypeType; // It's for change optType in store
+    optAlgSelectAction?: selectOptAlgType; // It's for change optAlg in store
+
 }
 
 
@@ -62,13 +76,25 @@ class HeaderMain extends React.Component<HeaderMainProps> {
                 }}>
                     <InputGroup>
                         <Label for={"opt-type-input"} className={"mt-2 mr-1"}>Optimization Type</Label>
-                        <OptTypeInput/>
+                        <OptTypeInput
+                            optType={{
+                                optTypeNodes: this.props.optTypeProps.optType.optTypeNodes,
+                                selectedOptType: this.props.optTypeProps.optType.selectedOptType
+                            }}
+                            optTypeSelectAction={this.props.optTypeSelectAction}
+                        />
                     </InputGroup>
                 </Col>
                 <Col className={"ml-3"} md={3}>
                     <InputGroup>
                         <Label for={"opt-type-input"} className={"mt-2 mr-1 ml-2"}>Optimization algorithm</Label>
-                        <OptAlg/>
+                        <OptAlg
+                            optAlg={{
+                                optAlgNodes: this.props.optAlgProps.optAlg.optAlgNodes,
+                                selectedOptAlg: this.props.optAlgProps.optAlg.selectedOptAlg
+                            }}
+                            optAlgSelectAction={this.props.optAlgSelectAction}
+                        />
                     </InputGroup>
                 </Col>
                 <Col md={"0"} className={"ml-3"}>
@@ -90,12 +116,28 @@ const mapStateToProps = (state: IStore) => ({
             carrierNodes: state.carrier.carrierNodes,
             selectedCarrier: state.carrier.selectedCarrier
         }
+    },
+
+    optTypeProps: {
+        optType: {
+            optTypeNodes: state.optType.optTypeNodes,
+            selectOptType: state.optType.selectedOptType
+        }
+    },
+
+    optAlgProps: {
+        optAlg: {
+            optAlgNodes: state.optAlg.optAlgNodes,
+            selectOptAlg: state.optAlg.selectedOptAlg
+        }
     }
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
     carrierSelectAction: bindActionCreators(selectCarrier, dispatch),
-    dateTimeAction: bindActionCreators(setDate, dispatch)
+    dateTimeAction: bindActionCreators(setDate, dispatch),
+    optTypeSelectAction: bindActionCreators(selectOptType, dispatch),
+    optAlgSelectAction: bindActionCreators(selectOptAlg, dispatch),
 });
 
 

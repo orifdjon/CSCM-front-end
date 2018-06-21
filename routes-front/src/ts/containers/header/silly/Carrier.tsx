@@ -1,6 +1,6 @@
 import * as React from 'react'
 import {Col, Input, InputGroup} from "reactstrap";
-import {carrierNodes, selectCarrierType} from "../../../reduxElem/Carrier";
+import {carrierNodes, selectCarrierType} from "../../../reduxElem/header/Carrier";
 
 
 
@@ -34,8 +34,8 @@ class CarrierInput extends React.Component<CarrierProps> {
             <Col md={"1.9"}>
                 <InputGroup>
                     <Input
-                        id={"carrier-input"}
-                        name={"carrier-input-name"}
+                        id={"optType-input"}
+                        name={"optType-input-name"}
                         type={"select"}
                         onChangeCapture={this.handleSelectedCarriers}
                         >

@@ -1,8 +1,12 @@
 import {combineReducers} from "redux";
-import carrierReducer from "./Carrier";
-import dateReducer from "./DateTime";
+import carrierReducer from "./header/Carrier";
+import dateReducer from "./header/DateTime";
+import optTypeReducer from "./header/OptType";
+import optAlgReducer from "./header/OptAlg";
 
 export default combineReducers({
     carrier: carrierReducer,
-    date: dateReducer
+    date: dateReducer,
+    optType: optTypeReducer,
+    optAlg: optAlgReducer
 })

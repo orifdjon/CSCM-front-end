@@ -21,7 +21,7 @@ const initialState: FieldState = {
  * Это тянет дополнительную строку кода под константу, но благодаря этому
  * мы можем создавать интерфейсы действий с уникальными типами.
  */
-const SET = 'field/SET';
+const SET = 'field/SELECT_CARRIER';
 type SET = typeof SET;
 
 const FOCUS = 'field/FOCUS';
@@ -58,7 +58,7 @@ type FieldAction = SetAction | FocusAction | BlurAction;
  * вернем один и тот же объект.
  * Аргумент action позволяет проверить только те действия, которые
  * мы добавили в общий тип действий (FieldAction), и благодаря
- * интерфейсам в каждом условном блоке (например case SET) мы знаем
+ * интерфейсам в каждом условном блоке (например case SELECT_CARRIER) мы знаем
  * точное содержимое аргумента action.
  */
 export default function reducer(state: FieldState = initialState, action: FieldAction): FieldState {

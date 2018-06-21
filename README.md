@@ -17,7 +17,7 @@
     "n(rout number)": -999,
     "region(don't use)": 43,
     "fdate('YYYY-MM-DD')": "2018-04-26T21:00:00.000+0000",
-    "changed(don't use)": false, //TODO learn about this value
+    "changed(don't use)": false, curCurrier
     "points": 1,
     "length": 0,
     "time": 0,

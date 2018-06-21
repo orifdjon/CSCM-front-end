@@ -1,12 +1,19 @@
 import {createStore} from "redux";
-import reduxElem from '../reduxElem';
-import { FieldState} from "../reduxElem/fields";
+import rootReducer from '../reduxElem';
+import { CarrierState} from "../reduxElem/Carrier";
+
+export interface IStore{
+    carrier: CarrierState
+}
 
 const reduxDevTool = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
-const configuration = (initial?:  FieldState) => {
+
+
+const configuration = (initialState?:  IStore) => {
     return createStore(
-        reduxElem,
+        rootReducer,
+        initialState,
         reduxDevTool
     )
 };

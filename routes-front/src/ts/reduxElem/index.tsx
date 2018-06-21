@@ -1,6 +1,8 @@
 import {combineReducers} from "redux";
-import reducer from "./fields";
+import carrierReducer from "./Carrier";
+import dateReducer from "./DateTime";
 
 export default combineReducers({
-    field: reducer
+    carrier: carrierReducer,
+    date: dateReducer
 })

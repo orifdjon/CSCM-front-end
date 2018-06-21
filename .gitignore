@@ -3,5 +3,6 @@ routes-front/bower_components
 
 .idea
 
-routes-front/build/*
+routes-front/build
+routes-front/.idea
 

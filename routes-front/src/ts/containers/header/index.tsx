@@ -1,10 +1,11 @@
 import * as React from "react";
 import HeaderBtns from "./silly/Btns"
-import {Col, Container, Row} from "reactstrap";
+import {Col, Row} from "reactstrap";
 import HeaderMain from "./smart/HeaderMain";
 
-class Header extends React.Component<{}, {}> {
-    render() { //TODO implement CurrentTime
+
+class Header extends React.Component {
+    render() {
         return (
             <Row>
                 <Col>

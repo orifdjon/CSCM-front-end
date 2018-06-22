@@ -1,8 +1,10 @@
-import {createStore} from "redux";
+import {applyMiddleware, createStore} from "redux";
 import rootReducer from '../reduxElem';
 import { CarrierState} from "../reduxElem/header/Carrier";
 import {OptTypeState} from "../reduxElem/header/OptType";
 import {OptAlgState} from "../reduxElem/header/OptAlg";
+import {composeWithDevTools} from "redux-devtools-extension";
+import reduxThunk from 'redux-thunk'
 
 export interface IStore{
     carrier: CarrierState;
@@ -14,11 +16,18 @@ const reduxDevTool = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTO
 
 
 
+const middlewares = [
+    reduxThunk
+];
+
+
 const configuration = (initialState?:  IStore) => {
     return createStore(
         rootReducer,
         initialState,
-        reduxDevTool
+        composeWithDevTools(
+            applyMiddleware(...middlewares)
+        )
     )
 };
 

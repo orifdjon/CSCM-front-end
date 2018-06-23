@@ -2,11 +2,11 @@
   "compilerOptions": {
     "module": "commonjs",
 //    "lib": ["es5", "es6", "es7"],
-    "target": "es5",
+    "target": "es2017",
     "sourceMap": true,
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
-    "noImplicitAny": true,
+//    "noImplicitAny": true,
     "outDir": "./build/js",
     "preserveConstEnums": true,
     "removeComments": true

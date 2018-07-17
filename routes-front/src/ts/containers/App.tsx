@@ -4,7 +4,7 @@ import {Col, Container, Row} from "reactstrap";
 import Main from "./main";
 import Map from "./main/Map";
 import Footer from "./footer";
-import Users from "./Users";
+
 
 
 class App extends React.Component<{}, {}> {
@@ -22,7 +22,8 @@ class App extends React.Component<{}, {}> {
                         </Container>
                     </Col>
                     <Col className={"mt-3 map"}>
-                        <Users/> {/*Это пример*/}
+                        {/*<Users/> /!*Это пример*!/*/}
+
                         {/*<Map
                             googleMapURL={"https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUI" +
                             "GKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places"}

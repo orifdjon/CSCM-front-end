@@ -31,7 +31,7 @@ export default function reducer(state: DateTimeState = initialDate, action: date
 
 export type setDateType = (payload: string) => SetDateAction;
 
-export const dateFormat: string = "DD-MM-YYYY";
+export const dateFormat: string = "YYYY-DD-MM";
 
 export const setDate = (payload: string): SetDateAction => ({
     type: SET_DATE,

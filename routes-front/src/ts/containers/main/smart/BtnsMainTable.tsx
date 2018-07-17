@@ -7,10 +7,10 @@ import Recalculate from "../silly/BtnsMainTable/Recalculate";
 export default class BtnsMainTable extends React.Component {
     render() {
         return [
-            <Add/>,
-            <Delete/>,
-            <Export/>,
-            <Recalculate/>,
+            <Add key={1}/>,
+            <Delete key={2}/>,
+            <Export key={3}/>,
+            <Recalculate key={4}/>,
         ];
     }
 }

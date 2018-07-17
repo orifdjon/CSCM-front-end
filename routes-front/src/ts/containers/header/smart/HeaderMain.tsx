@@ -19,6 +19,7 @@ import {dateFormat, setDate, setDateType} from "../../../reduxElem/header/DateTi
 import {selectCarrier, selectCarrierType} from "../../../reduxElem/header/Carrier";
 import {selectOptType, selectOptTypeType} from "../../../reduxElem/header/OptType";
 import {selectOptAlg, selectOptAlgType} from "../../../reduxElem/header/OptAlg";
+import Search from "./Search";
 
 
 interface HeaderMainProps {
@@ -98,7 +99,7 @@ class HeaderMain extends React.Component<HeaderMainProps> {
                     </InputGroup>
                 </Col>
                 <Col md={"0"} className={"ml-3"}>
-                    <Button color="primary">Search</Button>
+                    <Search/>
                 </Col>
                 <Col md={"0"} className={"ml-3"}>
                     <Button color="white">Calculate</Button>
@@ -130,7 +131,9 @@ const mapStateToProps = (state: IStore) => ({
             optAlgNodes: state.optAlg.optAlgNodes,
             selectOptAlg: state.optAlg.selectedOptAlg
         }
-    }
+    },
+
+
 });
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({

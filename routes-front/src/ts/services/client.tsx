@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-const protocol = "https";
+const protocol = "";
 const host = "localhost";
-const port = "8080";
+const port = "3000";
 
 const client = axios.create({
-    baseURL: `${protocol}://${host}`
+    baseURL: `http://localhost:3000`
 });
 
 export default client;

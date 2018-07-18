@@ -2,9 +2,8 @@
 import * as React from 'react';
 import {Button} from "reactstrap";
 import {IStore} from "../../../store";
-import {bindActionCreators, Dispatch} from "redux";
 import {connect} from "react-redux";
-import {get, getType} from "../../../reduxElem/header/Search";
+import {get} from "../../../reduxElem/header/Search";
 
 
 interface UsersProps {

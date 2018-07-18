@@ -6,7 +6,6 @@ import Map from "./main/Map";
 import Footer from "./footer";
 
 
-
 class App extends React.Component<{}, {}> {
     render() {
         return (
@@ -22,7 +21,6 @@ class App extends React.Component<{}, {}> {
                         </Container>
                     </Col>
                     <Col className={"mt-3 map"}>
-                        {/*<Users/> /!*Это пример*!/*/}
 
                         {/*<Map
                             googleMapURL={"https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUI" +

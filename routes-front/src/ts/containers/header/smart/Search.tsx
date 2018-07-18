@@ -1,16 +1,18 @@
+///<reference path="../../../reduxElem/header/Search.tsx"/>
 import * as React from 'react';
 import {Button} from "reactstrap";
-import {getSearch, getSearchType} from "../../../services/search";
 import {IStore} from "../../../store";
 import {bindActionCreators, Dispatch} from "redux";
 import {connect} from "react-redux";
+import {get, getType} from "../../../reduxElem/header/Search";
 
 
 interface UsersProps {
     isFetching?: boolean;
     error?: Error;
-    getSearchAction?: getSearchType;
+    dispatch?: any;
     dateStart?: string;
+
 }
 
 class Search extends React.Component<UsersProps, {}> {
@@ -20,7 +22,7 @@ class Search extends React.Component<UsersProps, {}> {
     }
 
     onSearch() {
-        this.props.getSearchAction(this.props.dateStart)
+        this.props.dispatch(get(this.props.dateStart))
     }
 
     render() {
@@ -48,8 +50,8 @@ const mapStateToProps = (state: IStore) => ({
     dateStart: state.date.date
 });
 
-const mapDipatchToProtps = (dispatch: Dispatch) => ({
-    getSearchAction: bindActionCreators(getSearch, dispatch)
+const mapDispatchToProps = (dispatch: any) => ({
+    dispatch: dispatch
 });
 
-export default connect(mapStateToProps, mapDipatchToProtps)(Search);
+export default connect(mapStateToProps, mapDispatchToProps)(Search);

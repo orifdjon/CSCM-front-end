@@ -86,7 +86,17 @@ export const getActionCreator = (status?: 'error' | 'success', payload?: search.
     payload
 });
 
-export function get(dateStart: string,
+export type getType = (dateStart?: string,
+                       carrier?: number,
+                       maxPoints?: number,
+                       maxCars?: number,
+                       newDate?: string,
+                       optType?: number,
+                       optAlg?: number) =>
+    (dispatch: Dispatch, getState: () => IStore)
+        => void;
+
+export function get(dateStart: string = "None",
                     carrier: number = 43,
                     maxPoints: number = 30,
                     maxCars: number = 6,

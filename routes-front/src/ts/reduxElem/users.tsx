@@ -168,6 +168,7 @@ export function get(id: number) {
     }
 }
 
+
 export function getList() {
     return async (dispatch: Dispatch, getState: () => IStore) => {
         dispatch(getListActionCreator());

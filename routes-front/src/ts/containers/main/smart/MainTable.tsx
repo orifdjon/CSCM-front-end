@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Button, Col, Row, Table} from "reactstrap";
-import ContainMainTable from '../silly/ContainMainTable';
+import ContainMainTable from './ContainMainTable';
 import BtnsMainTable from "./BtnsMainTable";
 
 

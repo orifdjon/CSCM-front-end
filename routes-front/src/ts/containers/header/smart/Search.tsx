@@ -3,7 +3,7 @@ import * as React from 'react';
 import {Button} from "reactstrap";
 import {IStore} from "../../../store";
 import {connect} from "react-redux";
-import {get} from "../../../reduxElem/header/Search";
+import {getSearch} from "../../../reduxElem/header/Search";
 
 
 interface UsersProps {
@@ -21,7 +21,7 @@ class Search extends React.Component<UsersProps, {}> {
     }
 
     onSearch() {
-        this.props.dispatch(get(this.props.dateStart))
+        this.props.dispatch(getSearch(this.props.dateStart))
     }
 
     render() {
@@ -30,7 +30,7 @@ class Search extends React.Component<UsersProps, {}> {
             alert("Error");
         }
         if (isFetching) {
-            alert("wait");
+            console.log("wait");
         }
         return (
             <Button

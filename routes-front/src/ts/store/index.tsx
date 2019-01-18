@@ -31,7 +31,6 @@ const middlewares = [
 const configuration = (initialState?:  IStore) => {
     return createStore(
         rootReducer,
-        initialState,
         composeWithDevTools(
             applyMiddleware(...middlewares)
         )

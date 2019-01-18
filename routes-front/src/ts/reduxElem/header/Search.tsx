@@ -96,19 +96,19 @@ export type getType = (dateStart?: string,
     (dispatch: Dispatch, getState: () => IStore)
         => void;
 
-export function get(dateStart: string = "None",
-                    carrier: number = 43,
-                    maxPoints: number = 30,
-                    maxCars: number = 6,
-                    newDate: string = "2000-00-01",
-                    optType: number = 1,
-                    optAlg: number = 1 ) {
+export function getSearch(dateStart: string = "None",
+                          carrier: number = 43,
+                          maxPoints: number = 30,
+                          maxCars: number = 6,
+                          newDate: string = "2000-00-01",
+                          optType: number = 1,
+                          optAlg: number = 1 ) {
 
     return async (dispatch: Dispatch, getState: () => IStore) => {
         dispatch(getActionCreator());
 
         try {
-            const response = await search.getSearch(dateStart, carrier, maxPoints, maxCars, newDate, optType, optAlg);
+            const response = await search.get(dateStart, carrier, maxPoints, maxCars, newDate, optType, optAlg);
             dispatch(getActionCreator('success', response.data))
         }
         catch (e) {

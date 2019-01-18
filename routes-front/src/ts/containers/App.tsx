@@ -21,19 +21,18 @@ class App extends React.Component<{}, {}> {
                         </Container>
                     </Col>
                     <Col className={"mt-3 map"}>
-
-                        {/*<Map
-                            googleMapURL={"https://maps.googleapis.com/maps/api/js?key=AIzaSyC4R6AN7SmujjPUI" +
-                            "GKdyao2Kqitzr1kiRg&v=3.exp&libraries=geometry,drawing,places"}
+                        {console.log("hhh")}
+                        <Map
+                            googleMapURL={"https://maps.googleapis.com/maps/api/js?key=AIzaSyAEVYEk-_D895MMdspChI6p23doCBj_H18"}
                             loadingElement={<div style={{height: `100%`}}/>}
                             containerElement={
                                 <div style={{
-                                    height: `500px`,
-                                    width: `500px`
+                                    height: `550px`,
+                                    width: `650px`
                                 }}/>
                             }
                             mapElement={<div style={{height: `100%`}}/>}
-                        />*/}
+                        />
                     </Col>
                 </Row>
             </div>

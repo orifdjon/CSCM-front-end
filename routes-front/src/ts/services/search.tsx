@@ -4,7 +4,7 @@ import {AxiosPromise} from "axios";
 export interface ISearchResp {
     n: number,
     region: number,
-    fdate: "string",
+    fdate: string,
     changed: boolean,
     points: number,
     length: number,
@@ -21,14 +21,14 @@ export type getSearchType = (dateStart: string, carrier?: number, maxPoints?: nu
                       maxCars?: number, newDate?: string, optType?: number, optAlg?: number)
                       => (AxiosPromise<ISearchResp[]>);
 
-export function getSearch(dateStart: string,
-                          carrier: number,
-                          maxPoints: number,
-                          maxCars: number,
-                          newDate: string,
-                          optType: number,
-                          optAlg: number): AxiosPromise<ISearchResp[]> {
-    return  client.get(`/routes?
+export function get(dateStart: string,
+                    carrier: number,
+                    maxPoints: number,
+                    maxCars: number,
+                    newDate: string,
+                    optType: number,
+                    optAlg: number): AxiosPromise<ISearchResp[]> {
+    return client.get(`/routes?
         dateStart=${dateStart}
         &
         region=${carrier}

@@ -30,6 +30,27 @@
       "editable": true,
       "approveable": true
     }
+  ],
+
+  "carriers": [
+    {
+      "id": 43,
+      "name": "Internal",
+      "descx": "Banks's own armored service",
+      "instId": 9999,
+      "instDescx": null,
+      "depotId": 15,
+      "depotDescx": null
+    },
+    {
+      "id": 44,
+      "name": "Vasya",
+      "descx": "Banks's own armored service",
+      "instId": 1239,
+      "instDescx": null,
+      "depotId": 15,
+      "depotDescx": null
+    }
   ]
 }
 

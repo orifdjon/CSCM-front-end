@@ -27,6 +27,7 @@ interface HeaderMainProps {
     optTypeProps?: OptTypeProps;
     optAlgProps?: OptAlgProps;
 
+    carrierDispatch?: any;
     carrierSelectAction?: selectCarrierType; // It's for change carriers in store
     dateTimeAction?: setDateType; // It's for change date in store
     optTypeSelectAction?: selectOptTypeType; // It's for change optType in store
@@ -60,6 +61,11 @@ class HeaderMain extends React.Component<HeaderMainProps> {
                                 selectedCarrier: this.props.carrierProps.carrier.selectedCarrier
                             }}
                             carrierSelectAction={this.props.carrierSelectAction}
+                            async={{
+                                isFetching: this.props.carrierProps.async.isFetching,
+                                error: this.props.carrierProps.async.error
+                            }}
+                            carrierDispatch={this.props.carrierDispatch}
                         />
                     </InputGroup>
                 </Col>
@@ -114,8 +120,12 @@ class HeaderMain extends React.Component<HeaderMainProps> {
 const mapStateToProps = (state: IStore) => ({
     carrierProps: {
         carrier: {
-            carrierNodes: state.carrier.carrierNodes,
+            carrierNodes: state.carrier.get.data,
             selectedCarrier: state.carrier.selectedCarrier
+        },
+        async: {
+            isFetching: state.carrier.get.isFetching,
+            error: state.carrier.get.error,
         }
     },
 
@@ -138,6 +148,7 @@ const mapStateToProps = (state: IStore) => ({
 
 const mapDispatchToProps = (dispatch: Dispatch) => ({
     carrierSelectAction: bindActionCreators(selectCarrier, dispatch),
+    carrierDispatch: dispatch,
     dateTimeAction: bindActionCreators(setDate, dispatch),
     optTypeSelectAction: bindActionCreators(selectOptType, dispatch),
     optAlgSelectAction: bindActionCreators(selectOptAlg, dispatch),
